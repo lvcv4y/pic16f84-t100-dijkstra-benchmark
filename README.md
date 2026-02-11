@@ -9,7 +9,7 @@ L'exécutable est par la suite utilisable via gem5 pour étudier le comportement
 On cherche à simuler une attaque réaliste par le trojan, qui sera responsable de détourner l'exécution du benchmark vers le code malveillant. Une version altérée du code-source de gem5, qui simule la compromission, sera responsable pour détecter le passage d'une adresse "légitime", et la détourner vers une cible donnée (un code arbitraire).
 
 On cherche donc à compiler un benchmark qui embarque un code arbitraire vers lequel le trojan détournera le flow d'exécution. Tout est définit dans le fichier `main.c` :
- - Le benchmark en lui-même. Ici, on fait tourner l'algorithme de Dijsktra sur un graphe généré aléatoirement.
+ - Le benchmark en lui-même. Ici, on fait tourner l'algorithme de Dijkstra sur un graphe généré aléatoirement.
  - Le code malveillant, contenu dans la fonction `trojan`.
 
 Pour faciliter le détournement, on cherche à fixer l'emplacement du code malveillant dans l'espace d'adressage virtuel.

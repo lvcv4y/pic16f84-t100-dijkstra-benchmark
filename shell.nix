@@ -5,7 +5,7 @@
 
 let
   pkgs = import <nixpkgs> { config = {}; overlays = []; };
-  
+
   crossPkgs = 
     import <nixpkgs> {
       # uses GCC and newlib
@@ -23,7 +23,7 @@ let
     echo "[*] Compiled, file is \"program\"." 
   '';
 in
-# use crossPkgs' mkShell to use the correct stdenv, so that riscv64-unknown-elf-* becomes available.
+# use crossPkgs' mkShell to use the correct stdenv, so that riscv64-unknown-elf-* become available.
 crossPkgs.mkShell {
   packages = [
     compileCmd
