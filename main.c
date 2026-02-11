@@ -40,9 +40,10 @@ int minDistance(int dist[], int visited[], int n) {
     return min_index;
 }
 
-// Dijkstra's algorithm
 // put this function in a section called ".target". Make target address selection easier.
 void dijkstra(int graph[MAX_NODES][MAX_NODES], int n, int src) __attribute__((section(".target")));
+
+// Dijkstra's algorithm
 void dijkstra(int graph[MAX_NODES][MAX_NODES], int n, int src) {
     int dist[MAX_NODES];
     int visited[MAX_NODES] = {0};
