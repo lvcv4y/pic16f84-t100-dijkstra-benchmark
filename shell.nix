@@ -1,12 +1,18 @@
+/*
+ * This shell was mostly taken from the following forum post:
+ * https://discourse.nixos.org/t/getting-access-to-the-riscv-gnu-toolchain-riscv64-unknown-elf/16022/6
+ */
+
 let
-  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-25.11";
-  pkgs = import nixpkgs { config = {}; overlays = []; };
+  pkgs = import <nixpkgs> { config = {}; overlays = []; };
+  
   crossPkgs = 
     import <nixpkgs> {
       # uses GCC and newlib
       crossSystem = { system = "riscv64-none-elf"; }; 
     };
   
+  # Handy custom command.
   compileCmd = pkgs.writeShellScriptBin "compile" ''
     if [ "$#" -ne 1 ]; then
       echo "[*] syntax: compile <file.c>";
